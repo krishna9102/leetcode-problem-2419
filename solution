@@ -1,0 +1,27 @@
+class Solution {
+    public int longestSubarray(int[] nums) {
+        int max=0;
+        int maxocc=0;
+        for(int num:nums){
+            if(num>max)
+            max=num;
+        }
+        int c=0;
+        for(int num:nums)
+        {
+            if(num==max)
+            c++;
+            else
+            { if(maxocc<=c)
+               {maxocc=c;}
+               c=0;
+
+            }
+        }
+        System.out.println(maxocc);
+        if(maxocc==0)
+        return 1;
+        else
+        return maxocc;
+    }
+}
